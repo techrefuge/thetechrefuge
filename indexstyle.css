@@ -722,6 +722,7 @@ a {
     
     .nav-logo h1 {
         font-size: 1.2rem;
+        white-space: nowrap;
     }
     
     .nav-links {
