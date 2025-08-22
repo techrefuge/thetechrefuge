@@ -61,6 +61,12 @@ a {
     margin: 0 auto;
 }
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+}
+
 .nav-logo h1 {
     color: var(--light-text);
     font-size: 1.5rem;
@@ -124,11 +130,13 @@ a {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 100vh;
+    min-height: 100vh;
+    padding-top: 100px; /* Account for fixed nav */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0 5%;
+    padding-left: 5%;
+    padding-right: 5%;
     background: linear-gradient(135deg, rgba(2, 9, 19, 0.95), rgba(0, 28, 70, 0.85)), url('https://via.placeholder.com/1920x1080') center/cover no-repeat;
     overflow: hidden;
 }
@@ -411,7 +419,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 6rem;
+    gap: 4rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -699,6 +707,82 @@ a {
     border-color: var(--primary-light);
 }
 
+/* Mobile Navigation Styles */
+.mobile-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem; /* Increased gap */
+}
+
+.hamburger-menu {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 28px; /* Slightly larger */
+    height: 22px;
+    padding: 0;
+    position: relative;
+}
+
+.hamburger-menu span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.hamburger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-menu.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+.mobile-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(2, 9, 19, 0.98);
+    backdrop-filter: blur(10px);
+    display: none;
+    flex-direction: column;
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.mobile-dropdown.show {
+    display: flex;
+}
+
+.mobile-nav-link {
+    color: var(--light-text);
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 1rem 2rem;
+    transition: var(--hover-transition);
+    border-left: 3px solid transparent;
+}
+
+.mobile-nav-link:hover {
+    background-color: rgba(0, 194, 255, 0.1);
+    border-left-color: var(--accent-color);
+}
+
+.mobile-get-started {
+    display: none;
+    white-space: nowrap; /* Prevent text wrapping */
+}
 
 /* Media Queries */
 @media (max-width: 1024px) {
@@ -712,32 +796,50 @@ a {
 }
 
 @media (max-width: 768px) {
+    /* Show mobile nav, hide desktop nav */
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-get-started {
+        display: block;
+    }
+
     .nav-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0 2%;
-        gap: 0;
+        position: relative;
+        padding: 0 1.5rem; /* More padding on sides */
     }
     
-    .nav-logo h1 {
-        font-size: 1.2rem;
-        white-space: nowrap;
+    .nav-right {
+        gap: 1.5rem; /* Ensure good spacing */
     }
     
-    .nav-links {
-        gap: 0.8rem;
-        flex-shrink: 0;
+    .navbar {
+        padding: 1rem 0; /* More vertical padding */
+    }
+
+    /* Add hero mobile fixes */
+    .hero {
+        min-height: 100vh;
+        padding-top: 120px; /* More space for mobile navbar */
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
     
-    .nav-link {
-        font-size: 0.75rem;
-        white-space: nowrap;
+    .hero-content {
+        padding: 2rem 0; /* Add vertical padding */
     }
     
-    .action-btn {
-        padding: 0.5rem 1rem;
-        font-size: 0.75rem;
+    .hero-content h1 {
+        font-size: 3.5rem;
+        line-height: 1.1; /* Tighter line height for mobile */
+        margin-bottom: 1.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        line-height: 1.5;
     }
     
     .hero-content h1 {
@@ -757,6 +859,131 @@ a {
     
     .sponsor-logo {
         width: 120px;
+    }
+
+    /* Updated sponsor mobile styles */
+    .sponsors-section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .sponsor-row {
+        gap: 2.5rem;
+        justify-content: space-around; /* Better distribution on mobile */
+    }
+    
+    .sponsor-logo, .sponsor-logo1 {
+        width: 110px;
+    }
+    
+    .sponsor-logo {
+        height: 110px;
+    }
+    
+    .sponsor-logo1 {
+        height: 55px;
+    }
+
+    /* Add this blog section fix */
+    .blog-grid {
+        grid-template-columns: 1fr; /* Stack vertically */
+        gap: 1.5rem;
+    }
+    
+    .blog-card {
+        flex-direction: column; /* Stack date and content vertically */
+        text-align: center;
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+    
+    .blog-date {
+        align-self: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .date-number {
+        font-size: 2.5rem; /* Slightly smaller on mobile */
+    }
+    
+    .blog-content {
+        text-align: left; /* Keep content left-aligned */
+    }
+}
+
+/* Add this for extra small screens */
+@media (max-width: 480px) {
+    .nav-content {
+        padding: 0 1rem;
+    }
+    
+    .mobile-nav {
+        gap: 1rem;
+    }
+    
+    .mobile-get-started {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+    }
+    
+    .nav-logo h1 {
+        font-size: 1.3rem;
+    }
+
+    /* Add extra hero fixes for very small screens */
+    .hero {
+        padding-top: 100px;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Add to your existing 480px media query */
+    .sponsors-section {
+        padding: 3rem 1rem;
+    }
+    
+    .sponsor-row {
+        gap: 2rem;
+        flex-direction: column; /* Stack vertically on very small screens */
+        align-items: center;
+    }
+    
+    .sponsor-logo, .sponsor-logo1 {
+        width: 120px;
+    }
+    
+    .sponsor-logo {
+        height: 120px;
+    }
+    
+    .sponsor-logo1 {
+        height: 60px;
+    }
+
+    /* Add extra small screen blog adjustments */
+    .blog-section {
+        padding: 4rem 1rem;
+    }
+    
+    .blog-section h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .date-number {
+        font-size: 2rem;
+    }
+    
+    .blog-card {
+        padding: 1rem;
     }
 }
 
@@ -788,3 +1015,4 @@ a {
         font-size: 0.7rem;
     }
 }
+
