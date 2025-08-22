@@ -11,21 +11,42 @@
 </head>
 <body>
     <!-- Modern Navigation -->
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="nav-logo">
-                <a href="index.html">
-                    <h1>Tech Refuge</h1>
-                </a>
-            </div>
-            <div class="nav-links">
+<nav class="navbar">
+    <div class="nav-content">
+        <div class="nav-logo">
+            <a href="index.html">
+                <h1>Tech Refuge</h1>
+            </a>
+        </div>
+        
+        <div class="nav-right">
+            <!-- Desktop Navigation -->
+            <div class="nav-links desktop-nav">
                 <a href="about.html" class="nav-link">About</a>
                 <a href="contact.html" class="nav-link">Contact</a>
-                <a href="members.html" class="nav-link active">Members</a>
+                <a href="members.html" class="nav-link">Members</a>
                 <a href="#" class="nav-link action-btn">Get started</a>
             </div>
+            
+            <!-- Mobile Navigation -->
+            <div class="mobile-nav">
+                <a href="#" class="nav-link action-btn mobile-get-started">Get started</a>
+                <button class="hamburger-menu" id="hamburgerBtn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
-    </nav>
+        
+        <!-- Mobile Dropdown Menu -->
+        <div class="mobile-dropdown" id="mobileDropdown">
+            <a href="about.html" class="mobile-nav-link">About</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+            <a href="members.html" class="mobile-nav-link">Members</a>
+        </div>
+    </div>
+</nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -177,5 +198,37 @@
             </div>
         </div>
     </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburgerBtn = document.getElementById('hamburgerBtn');
+            const mobileDropdown = document.getElementById('mobileDropdown');
+        
+        hamburgerBtn.addEventListener('click', function() {
+            // Toggle the hamburger animation
+            hamburgerBtn.classList.toggle('active');
+            
+            // Toggle the dropdown
+            mobileDropdown.classList.toggle('show');
+        });
+        
+        // Close dropdown when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburgerBtn.classList.remove('active');
+                mobileDropdown.classList.remove('show');
+            });
+        });
+        
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!hamburgerBtn.contains(event.target) && !mobileDropdown.contains(event.target)) {
+                hamburgerBtn.classList.remove('active');
+                mobileDropdown.classList.remove('show');
+            }
+        });
+    });
+    </script>
 </body>
 </html>
