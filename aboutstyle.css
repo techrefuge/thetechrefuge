@@ -231,13 +231,11 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
 }
 
 .about-text {
     max-width: 800px;
     text-align: center;
-    margin: 0 auto;
 }
 
 .about-text p {
@@ -245,7 +243,6 @@ a {
     font-size: 1.1rem;
     color: var(--grey-text);
     line-height: 1.8;
-    text-align: center;
 }
 
 /* What We Do Section */
