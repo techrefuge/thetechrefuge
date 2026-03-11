@@ -436,6 +436,7 @@ a {
     mix-blend-mode: multiply;
     filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
     mix-blend-mode: screen;
+    display: flex;
 }
 
 .sponsor-logo1 {
@@ -450,7 +451,6 @@ a {
     mix-blend-mode: multiply;
     filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
     mix-blend-mode: screen;
-    display: flex;
 }
 
 .sponsor-logo:hover {
@@ -1016,5 +1016,6 @@ a {
         font-size: 0.7rem;
     }
 }
+
 
 
