@@ -424,31 +424,16 @@ a {
     margin: 0 auto;
 }
 
-.sponsor-logo {
+.sponsor-logo, .sponsor-logo1 {
     flex: 0 0 auto;
     width: 150px;
-    height: 150px;
+    height: 80px; 
     opacity: 0.6;
     transition: var(--hover-transition);
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    mix-blend-mode: multiply;
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
-    mix-blend-mode: screen;
     display: flex;
-}
-
-.sponsor-logo1 {
-    flex: 0 0 auto;
-    width: 150px;
-    height: 70px;
-    opacity: 0.6;
-    transition: var(--hover-transition);
     align-items: center;
     justify-content: center;
     background-color: transparent;
-    mix-blend-mode: multiply;
     filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
     mix-blend-mode: screen;
 }
@@ -1016,6 +1001,7 @@ a {
         font-size: 0.7rem;
     }
 }
+
 
 
 
