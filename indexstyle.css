@@ -424,7 +424,7 @@ a {
     margin: 0 auto;
 }
 
-.sponsor-logo, .sponsor-logo1 {
+.sponsor-logo {
     flex: 0 0 auto;
     width: 150px;
     height: 80px; 
@@ -445,20 +445,7 @@ a {
     transform: scale(1.05);
 }
 
-.sponsor-logo1:hover {
-    filter: invert(1) sepia(1) saturate(5) hue-rotate(180deg);
-    color: rgba(1, 7, 16, 0.95);
-    opacity: 1;
-    transform: scale(1.05);
-}
-
 .sponsor-logo img {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-}
-
-.sponsor-logo1 img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
@@ -467,10 +454,6 @@ a {
 .sponsor-logo:hover {
   opacity: 1;
 }
-
-.sponsor-logo1:hover {
-    opacity: 1;
-  }
 
 .sponsors-container {
   display: flex;
@@ -1001,6 +984,7 @@ a {
         font-size: 0.7rem;
     }
 }
+
 
 
 
